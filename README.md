@@ -15,7 +15,10 @@ Airavata Managed File Transfer Service and Clients
 ## Building from the script
 
 * Go to scripts directory
-* Run ```/bin/bash build.sh```
+* If you're on an apple-silicon computer, run the following:
+`/bin/bash build.sh mac-arm64`
+otherwise, run:
+`/bin/bash build.sh`
 * This will build the whole project and unzip distributions of each service to the build direcotry of the root of the project
 
 #### Defaults for Resource and Secret Service
@@ -25,30 +28,8 @@ files in conf directory of each distribution
 
 #### Starting the distribution
 * You should have consul running inorder to start MFT. You can start consul by running ```/bin/bash start-consul.sh <os distribution>```. 
-For example ```/bin/bash start-consul.sh mac```. You can see supported distributions by running ```/bin/bash start-consul.sh -h```
+For example ```/bin/bash start-consul.sh mac-arm64```. You can see supported distributions by running ```/bin/bash start-consul.sh -h```
 * If your OS distribution is not provided in the script, you can manually install Consul using pre compiled binaries https://www.consul.io/docs/install/index.html#precompiled-binaries
-
-**For Apple-Silicon users**:
-Add the following in your `~/.m2/settings.xml`
-```xml
-<settings>
-  <activeProfiles>
-    <activeProfile>
-      apple-silicon
-    </activeProfile>
-  </activeProfiles>
-  <profiles>
-    <profile>
-      <id>mac-silicon</id>
-      <properties>
-        <os.detected.classifier>osx-x86_64</os.detected.classifier>
-      </properties>
-    </profile>
-  </profiles>
-</settings>
-```
-
-
 * To start MFT stack, run ```/bin/bash start-mft.sh```. This will start all the services and an Agent to transfer data
 * To stop MFT stack, run ```/bin/bash start-mft.sh```
 * If you want to see logs of any running service, run ```/bin/bash log.sh <service name>```. For example, ```/bin/bash log.sh secret```. 

@@ -20,7 +20,7 @@
 cd ../
 case $1 in
     mac-arm64)
-        mvn clean install
+        mvn clean install -Pmac-arm64
     ;;
     *)
         mvn clean install
