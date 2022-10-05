@@ -18,7 +18,14 @@
 # under the License.
 
 cd ../
-mvn clean install
+case $1 in
+    mac-arm64)
+        mvn clean install
+    ;;
+    *)
+        mvn clean install
+    ;;
+esac
 rm -rf airavata-mft
 mkdir -p airavata-mft
 cp agent/target/MFT-Agent-0.01-bin.zip airavata-mft/

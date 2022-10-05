@@ -27,6 +27,28 @@ files in conf directory of each distribution
 * You should have consul running inorder to start MFT. You can start consul by running ```/bin/bash start-consul.sh <os distribution>```. 
 For example ```/bin/bash start-consul.sh mac```. You can see supported distributions by running ```/bin/bash start-consul.sh -h```
 * If your OS distribution is not provided in the script, you can manually install Consul using pre compiled binaries https://www.consul.io/docs/install/index.html#precompiled-binaries
+
+**For Apple-Silicon users**:
+Add the following in your `~/.m2/settings.xml`
+```xml
+<settings>
+  <activeProfiles>
+    <activeProfile>
+      apple-silicon
+    </activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>mac-silicon</id>
+      <properties>
+        <os.detected.classifier>osx-x86_64</os.detected.classifier>
+      </properties>
+    </profile>
+  </profiles>
+</settings>
+```
+
+
 * To start MFT stack, run ```/bin/bash start-mft.sh```. This will start all the services and an Agent to transfer data
 * To stop MFT stack, run ```/bin/bash start-mft.sh```
 * If you want to see logs of any running service, run ```/bin/bash log.sh <service name>```. For example, ```/bin/bash log.sh secret```. 

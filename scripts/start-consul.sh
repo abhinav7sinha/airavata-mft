@@ -34,6 +34,19 @@ case $1 in
             echo "Consul is already running ..."
         fi
     ;;
+    mac-arm64)
+        if [ ! -f $PID_PATH_NAME ]; then
+            mkdir -p ../airavata-mft/consul
+            curl -O https://releases.hashicorp.com/consul/1.13.2/consul_1.13.2_darwin_arm64.zip
+            unzip -o consul_1.13.2_darwin_arm64.zip -d ../airavata-mft/consul
+            rm consul_1.13.2_darwin_arm64.zip
+            nohup ../airavata-mft/consul/consul agent -dev > $LOG_FILE 2>&1 &
+            echo $! > $PID_PATH_NAME
+            echo "Consul started"
+        else
+            echo "Consul is already running ..."
+        fi
+    ;;
     linux)
         if [ ! -f $PID_PATH_NAME ]; then
             mkdir -p ../airavata-mft/consul

@@ -19,6 +19,14 @@
             <version>${protobuf.java}</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>mac-arm64</id>
+            <properties>
+                <os.detected.classifier>osx-x86_64</os.detected.classifier>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <extensions>
             <extension>
