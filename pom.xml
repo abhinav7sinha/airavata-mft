@@ -84,7 +84,14 @@
     <issueManagement>
         <url>https://issues.apache.org/jira/browse/AIRAVATA</url>
     </issueManagement>
-
+    <profiles>
+        <profile>
+            <id>mac-arm64</id>
+            <properties>
+                <os.detected.classifier>osx-x86_64</os.detected.classifier>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>

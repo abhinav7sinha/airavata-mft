@@ -64,7 +64,8 @@ case $1 in
         echo "Usage: start-consul.sh"
 
         echo "command options:"
-        echo "  mac                  Start for mac"
+        echo "  mac                  Start for mac intel chip"
+        echo "  mac-arm64            Start for mac silicon chip"
         echo "  -h                   Display this help and exit"
         shift
         exit 0
